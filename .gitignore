@@ -1,0 +1,13 @@
+# secret
+
+# env
+.envrc
+.env
+
+# vagrant
+.vagrant
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
