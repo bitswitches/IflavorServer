@@ -11,20 +11,18 @@
 - etc
 
 ## programming language
--
+- PHP
 
 ## framework
-- 
+- Laravel
 
 ## Environment Variables
 
 ### Vagrant
 
-#### desctiption
-- default static ip address : `192.168.33.10`
-
 #### static ip
 - VAGRANT_STATIC_IP (optional)
+  - default static ip address : `192.168.33.10`
 
 #### proxy
 
