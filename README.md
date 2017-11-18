@@ -11,10 +11,10 @@
 - etc
 
 ## programming language
--
+- PHP
 
 ## framework
-- 
+- Laravel
 
 ## Environment Variables
 
