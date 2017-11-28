@@ -1,0 +1,11 @@
+# split into multiple componts
+
+[nginx]
+localhost
+
+[mysql]
+127.0.0.1
+
+[local:children]
+mysql
+nginx

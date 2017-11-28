@@ -1,0 +1,14 @@
+# split into multiple componts
+
+[nginx]
+xxx.xxx.xxx.xxx
+
+[mysql]
+xxx.xxx.xxx.xxx
+
+[production:children]
+mysql
+nginx
+
+[vars]
+xxx.xxx.xxx.xxx ansible_connection=ssh ansible_user=ssh_login_user ansible_port=22 ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_sudo_pass=sudo_password
