@@ -89,4 +89,19 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", run: 'always', inline: <<-SHELL
   # SHELL
 
+
+  # memo: ansible-playbook -i hosts/local nginx.yml --connection=local
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "site.yml"
+    ansible.install_mode = "pip"
+    ansible.version = "latest"
+    ansible.limit = "all"
+    ansible.raw_arguments = ["--connection=local"]
+    ansible.inventory_path = "hosts/local.yml"
+    ansible.provisioning_path = "/#{project_name}/ansible"
+    ansible.galaxy_role_file = "/#{project_name}/ansible/requirements.yml"
+    ansible.galaxy_roles_path = "/#{project_name}/ansible/galaxy"
+    ansible.config_file = "/#{project_name}/ansible/ansible.cfg"
+  end
+
 end
