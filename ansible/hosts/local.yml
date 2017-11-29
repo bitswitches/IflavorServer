@@ -1,9 +1,12 @@
 # split into multiple componts
 
 [nginx]
-localhost
+127.0.0.1
 
 [mysql]
+127.0.0.1
+
+[app]
 127.0.0.1
 
 [local:children]
