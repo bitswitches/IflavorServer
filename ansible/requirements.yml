@@ -7,7 +7,15 @@
   version: 2.8.0
   name: mysql
 
-# Sample 
+- src: geerlingguy.php
+  version: 3.5.0
+  name: php
+
+- src: geerlingguy.repo-remi
+  version: 1.2.0
+  name: repo-remi
+
+# Sample
 # # from GitHub
 # - src: https://github.com/bennojoy/nginx
 
