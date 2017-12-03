@@ -1,5 +1,4 @@
 ---
 
 - import_playbook: nginx.yml
-- import_playbook: mysql.yml
 - import_playbook: app.yml

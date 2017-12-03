@@ -3,9 +3,9 @@
   version: 2.5.0
   name: nginx
 
-- src: geerlingguy.mysql
-  version: 2.8.0
-  name: mysql
+# - src: geerlingguy.mysql
+#   version: 2.8.0
+#   name: mysql
 
 - src: geerlingguy.php
   version: 3.5.0
