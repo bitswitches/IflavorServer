@@ -1,4 +1,4 @@
 ---
 
-- include: nginx.yml
-- include: mysql.yml
+- include_tasks: nginx.yml
+- include_tasks: mysql.yml
