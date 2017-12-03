@@ -2,3 +2,4 @@
 
 - include_tasks: nginx.yml
 - include_tasks: mysql.yml
+- include_tasks: app.yml
