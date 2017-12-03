@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 8806
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -103,5 +104,18 @@ Vagrant.configure("2") do |config|
     ansible.galaxy_roles_path = "/#{project_name}/ansible/galaxy"
     ansible.config_file = "/#{project_name}/ansible/ansible.cfg"
   end
+
+  config.vm.provision 'shell', inline: <<-SHELL
+    # yum -y update && yum clean all
+    # mysql
+    sudo yum install -y docker
+    sudo systemctl enable docker
+    sudo systemctl start docker
+    sudo docker run --name database -d -v /etc/localtime:/etc/localtime:ro -v /#{project_name}/docker/mysql:/etc/mysql/conf.d:ro -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:5.6
+  SHELL
+
+  config.vm.provision 'shell', run: 'always', privileged: false, inline: <<-SHELL
+    sudo docker start database
+  SHELL
 
 end
