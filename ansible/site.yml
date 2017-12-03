@@ -1,5 +1,5 @@
 ---
 
-- include_tasks: nginx.yml
-- include_tasks: mysql.yml
-- include_tasks: app.yml
+- import_playbook: nginx.yml
+- import_playbook: mysql.yml
+- import_playbook: app.yml
