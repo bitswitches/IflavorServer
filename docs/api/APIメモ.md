@@ -1,0 +1,54 @@
+* API
+    - 購入系
+        - 商品を購入 POST /order?item_name=xx&item_count=x
+        - 購入情報を更新 PUT /order/order_id?item_name=xx&item_count=x
+        - 購入情報を取得 GET /order/order_id
+        - 購入情報を削除 DELETE /order/order_id
+    - ★ムズイ：所持している香水情報
+        - 香水情報作成 POST /belongings?belongings_id=xx&item_id=xx&count=xx
+        - 香水情報更新 PUT /belongings?belongings_id=xx&item_id=xx&count=xx
+        - 全香水情報取得 GET /belongings
+        - 香水情報取得 GET /belongings/belongings_id=xx
+        - 香水情報削除 DELETE /belongings/belongongs_id=xx
+    - シチュエーション選択系
+    - 購入履歴
+        - 購入履歴作成 POST /history?history_id=
+        - 全購入履歴取得 GET /history
+        - 購入履歴取得 GET /history/history_id
+        - 購入履歴削除 DELETE /history/history_id
+        - 購入履歴更新 PUT /history/history_id?・・・
+    - 会員情報系
+        - 会員情報登録 POST /user?user_id=xx&user_name=xx・・・
+        - 会員情報更新 PUT /user/user_id?user_name=xx・・・
+        - 会員情報取得 GET /user/user_id
+        - 会員情報削除 DELETE /user/user_id
+    - 商品情報
+        - 商品登録 POST /item?item_id=xx&name=xx・・・
+        - 商品情報更新 PUT /item/item_id?name=xx・・・
+        - 全商品情報取得 GET /item
+        - 商品情報取得 GET /item/item_id
+        - 商品情報削除 DELETE /item/item_id=xx
+    - シチュエーション情報
+        - シチュエーション登録 POST /situation?situation_id=xx&・・・
+        - シチュエーション更新 PUT /situation/situation_id?user_id=xx&time=xx&・・・
+        - 全シチュエーション取得 GET /situation
+        - シチュエーション取得 GET /situation/situation_id
+        - シチュエーション削除 DELETE /situation/situation_id
+    
+* シチュエーションテーブル
+    - situation_id
+    - user_id
+    - item_id
+    - execute_time
+    - repeat
+    - situation
+    - geo 
+
+* メモ
+    - 香水情報について
+        - belongings_id追加↓のため
+        - item_idとitem_countは紐づいていなければならない。香水情報を削除するなら、あるitem_idをdeleteにしたらitem_countも減らないといけない
+        - 香水が何個かじゃなくて何%残っているのか
+    - historyについて
+        - 購入履歴の中に、何個買ったかの個数追加
+    - シチュエーションテーブルの作成(いつ香水だすかのタイミング設定部分)
