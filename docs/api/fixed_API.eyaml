@@ -1,0 +1,315 @@
+swagger: "2.0"
+info:
+  description: "iFlavor用API"
+  version: "2.0.0"
+  title: "iFlavorAPI"
+  
+paths:
+  /users:
+    post:
+      tags:
+      - "user"
+      summary: "会員情報登録"
+      description: ""
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/user"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "parameter is invalid"
+  /users/{id}:
+    get:
+      tags:
+      - "user"
+      summary: "会員情報取得"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema: 
+            type: "array"
+            items:
+              $ref: "#/definitions/user"
+    delete:
+      tags:
+      - "user"
+      summary: "会員情報削除"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: ""
+        type: "integer"
+        required: true
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "id is invalid"
+    put:
+      tags:
+      - "user"
+      summary: "会員情報更新"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "user_info"
+        description: "会員情報を変更"
+        required: true
+        schema:
+          $ref: "#/definitions/user"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "parameter is invalid"
+  /orders:
+    get:
+      tags:
+      - "orders"
+      summary: "商品購入情報一覧取得"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema: 
+            type: "array"
+            items:
+              $ref: "#/definitions/order"
+    post:
+      tags:
+      - "order"
+      summary: "商品購入"
+      description: ""
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/order"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "parameter is invalid"
+  /orders/{id}:
+    get:
+      tags:
+      - "order"
+      summary: "指定した商品購入情報取得"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/order"
+    delete:
+      tags:
+      - "order"
+      summary: "商品購入情報削除"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: ""
+        type: "integer"
+        required: true
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "id is invalid"
+    put:
+      tags:
+      - "order"
+      summary: "商品購入情報更新"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "product purchase info"
+        description: "商品購入情報を変更"
+        required: true
+        schema:
+          $ref: "#/definitions/order"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "parameter is invalid"
+  /items:
+    post:
+      tags:
+      - "item"
+      summary: "商品登録"
+      description: ""
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/item"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "parameter is invalid"
+    get:
+      tags:
+      - "item"
+      summary: "全商品情報取得"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema: 
+            type: "array"
+            items:
+              $ref: "#/definitions/item"
+  /items/{id}:
+    get:
+      tags:
+      - "item"
+      summary: "商品情報取得"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/item"
+    delete:
+      tags:
+      - "item"
+      summary: "商品情報削除"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: ""
+        type: "integer"
+        required: true
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "id is invalid"
+    put:
+      tags:
+      - "item"
+      summary: "商品情報更新"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "item_info"
+        description: "商品情報を変更"
+        required: true
+        schema:
+          $ref: "#/definitions/item"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "parameter is invalid"
+definitions:
+  orders:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      user_id:
+        type: "integer"
+        format: "int64"
+      item_id:
+        type: "integer"
+        format: "int64"
+      count:
+        type: "integer"
+        format: "int64"
+      payment:
+        type: "integer"
+        format: "int64"
+      created_at:
+        type: "number"
+      updated_time:
+        type: "number"
+  users:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      age:
+        type: "integer"
+        format: "int64"
+      sex:
+        type: "boolean"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      address:
+        type: "string"
+      created_at:
+        type: "number"
+      updated_at:
+        type: "number"
+  items:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      price:
+        type: "integer"
+        format: "int64"
+      created_at:
+        type: "number"
+      upated_at:
+        type: "number"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
